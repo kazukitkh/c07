@@ -1,4 +1,4 @@
-#include <stdio.h>
+//#include <stdio.h>
 #include <stdlib.h>
 
 char    *ft_strdup(char *src)
@@ -9,16 +9,18 @@ char    *ft_strdup(char *src)
 	i = 0;
 	while (src[i])
 		i++;
-	c = (char*)malloc(i);
-	*c = *src;
+	c = (char*)malloc(i + 1);
+	c[i] = 0;
+	c = src;
 	return (c);
 }
 
-int	main(int argc, char *argv[])
+/*int	main(int argc, char *argv[])
 {
 	char	*s;
 
+	(void)argc;
 	s = ft_strdup(argv[1]);
-	printf("%p, %d", s, argc);
+	printf("%s", s);
 	return (0);
-}
+}*/

@@ -9,11 +9,13 @@ int	ft_ultimate_range(int **range, int min, int max)
 	i = max - min;
 	if (i <= 0)
 	{
-		*range = NULL;
+		*range = ((void *)0);
 		return (0);
 	}
-	if (!(nb = malloc(sizeof(int) * (i))))
+	nb = malloc(sizeof(int) * (i + 1));
+	if (!nb)
 		return (-1);
+	nb[i] = '\0';
 	while (--i >= 0)  
 		nb[i] = min + i;
 	*range = nb;
@@ -29,7 +31,10 @@ int	main(void)
 	i = 0;
 	a = ft_ultimate_range(range, 3, 9);
 	printf("%d", a);
-	while (*range[i++])
-		printf("%d", *range[i - 1]);
+	while (*range[i])
+	{
+		printf("%d", *range[i]);
+		i++;
+	}
 	return (0);
 }
