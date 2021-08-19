@@ -1,15 +1,15 @@
 //#include <stdio.h>
 #include <stdlib.h>
 
-int *ft_range(int min, int max)
+int	*ft_range(int min, int max)
 {
-	int i;
+	int	i;
 	int *nb;
 
 	i = max - min;
 	if (i <= 0)
 		return ((void *)0);
-	nb = (int*)malloc(i + 1);
+	nb = (int *)malloc(i + 1);
 	nb[i] = 0;
 	while (i > 0)  
 	{
