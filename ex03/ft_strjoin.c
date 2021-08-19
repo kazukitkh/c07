@@ -8,7 +8,7 @@ void	ft_help_strjoin1(char **strs, char *sep, int *n)
 		while (strs[n[0]][n[2]])
 			n[2]++;
 		n[1] += n[2];
-		n[0] ++;
+		n[0]++;
 	}
 	n[2] = 0;
 	while (sep[n[2]])
@@ -51,12 +51,12 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 	n[4] = size;
 	if (!size)
 	{
-		c = (char*)malloc(1);
+		c = (char *)malloc(1);
 		*c = 0;
 		return (c);
 	}
 	ft_help_strjoin1(strs, sep, n);
-	c = (char*)malloc(n[1] + 1);
+	c = (char *)malloc(n[1] + 1);
 	ft_help_strjoin2(strs, sep, n, c);
 	return (c);
 }

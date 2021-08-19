@@ -15,7 +15,7 @@ int	ft_ultimate_range(int **range, int min, int max)
 	if (nb == (void *)0)
 		return (-1);
 	nb[i] = '\0';
-	while (i-- >= -1)  
+	while (i-- >= -1)
 		nb[i] = min + i;
 	*range = nb;
 	return (max - min);
