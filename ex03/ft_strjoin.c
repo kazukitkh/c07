@@ -1,7 +1,24 @@
 //#include <stdlib.h>
 //#include <stdio.h>
-void	ft_help_strjoin(char **strs, char *sep, int *n, char *c)
+void	ft_help_strjoin1(char **strs, char *sep, int *n)
 {
+	while (n[0] < n[4])
+	{
+		n[2] = 0;
+		while (strs[n[0]][n[2]])
+			n[2]++;
+		n[1] += n[2];
+		n[0] ++;
+	}
+	n[2] = 0;
+	while (sep[n[2]])
+		n[2]++;
+	n[1] += n[2] * (n[4] - 1);
+}
+
+void	ft_help_strjoin2(char **strs, char *sep, int *n, char *c)
+{
+	c[n[1]] = '\0';
 	n[0] = 0;
 	n[3] = 0;
 	while (n[0] < n[4])
@@ -33,22 +50,14 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 	n[1] = 0;
 	n[4] = size;
 	if (!size)
-		return(c = (char*)malloc(0));
-	while (n[0] < size)
 	{
-		n[2] = 0;
-		while (strs[n[0]][n[2]])
-			n[2]++;
-		n[1] += n[2];
-		n[0] ++;
+		c = (char*)malloc(1);
+		*c = 0;
+		return (c);
 	}
-	n[2] = 0;
-	while (sep[n[2]])
-		n[2]++;
-	n[1] += n[2] * (size - 1);
+	ft_help_strjoin1(strs, sep, n);
 	c = (char*)malloc(n[1] + 1);
-	c[n[1]] = '\0';
-	ft_help_strjoin(strs, sep, n, c);
+	ft_help_strjoin2(strs, sep, n, c);
 	return (c);
 }
 
